@@ -208,7 +208,7 @@
 # define OSMINOR "OS=AMIGA"
 # define OS_AMIGA
 # endif
-# ifdef __BEOS__
+# if defined(__BEOS__) && !defined(__HAIKU__)
 # define unix
 # define OSMINOR "OS=BEOS"
 # define OS_BEOS
@@ -234,6 +234,11 @@
 # ifdef __DGUX__
 # define OSMINOR "OS=DGUX"
 # define OS_DGUX
+# endif
+# ifdef __HAIKU__
+# define unix
+# define OSMINOR "OS=HAIKU"
+# define OS_HAIKU
 # endif
 # ifdef __hpux
 # define OSMINOR "OS=HPUX"
@@ -416,6 +421,7 @@
 
 # if defined( _i386_ ) || \
      defined( __i386__ ) || \
+     defined( __amd64__ ) || \
      defined( _M_IX86 )
 # if !defined( OS_OS2 ) && \
      !defined( OS_AS400 )
@@ -458,7 +464,7 @@
  */
 
 # ifndef MAXLINE
-# define MAXLINE 20480	/* longest 'together' actions' */
+# define MAXLINE 40960	/* longest 'together' actions' */
 # endif
 
 # ifndef EXITOK

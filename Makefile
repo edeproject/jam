@@ -52,11 +52,11 @@ HOST_SYSTEM=$(shell uname)
 #CC = gcc
 
 # BeOS (R5 only, actually, but who cares)
-#ifeq ($(HOST_SYSTEM), BeOS)
-#	ifeq ($(shell sh -c "strings /system/lib/libroot.so | grep uname"), )
-#		LINKLIBS = -lnet
-#	endif
-#endif
+ifeq ($(HOST_SYSTEM), BeOS)
+	ifeq ($(shell sh -c "strings /system/lib/libroot.so | grep uname"), )
+		LINKLIBS = -lnet
+	endif
+endif
 
 SOURCES = \
 	builtins.c \
