@@ -5,6 +5,7 @@ CFLAGS =
 EXENAME = ./jam0
 TARGET = -o $(EXENAME)
 HOST_SYSTEM=$(shell uname)
+INSTALL_DIR = "/usr/local/bin"
 
 # Special flavors - uncomment appropriate lines
 
@@ -71,3 +72,6 @@ all: $(EXENAME)
 
 $(EXENAME):
 	$(CC) $(TARGET) $(CFLAGS) $(SOURCES) $(LINKLIBS)
+
+install: $(EXENAME)
+	$(EXENAME) -sBINDIR=$(INSTALL_DIR) install
