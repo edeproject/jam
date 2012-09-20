@@ -2,10 +2,11 @@
 
 CC = cc
 CFLAGS =
+INSTALL_DIR = "/usr/local/bin"
+
 EXENAME = ./jam0
 TARGET = -o $(EXENAME)
 HOST_SYSTEM=$(shell uname)
-INSTALL_DIR = "/usr/local/bin"
 
 # Special flavors - uncomment appropriate lines
 
